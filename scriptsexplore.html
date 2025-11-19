@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF+8">
+  <title>ThoriumActinide's scripts</title>
+  <meta name="viewport" contenr="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+  	body {
+  		background-color: #111;
+	  }
+        .code-container {
+            background-color: #000;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            position: relative;
+        }
+        pre {
+            background-color: #111;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+            white-space: pre-wrap; /* Allows long lines to wrap */
+            word-wrap: break-word; /* Prevents overflow for long words */
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #555555;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .copy-button:hover {
+            background-color: #333333;
+        }
+        .copy-button.copied {
+            background-color: #28a745;
+        }
+        h1, p {
+            color: white;
+         }
+  </style>
+</head>
+<body>
+	<h1>Explore my scripts!>
+	<p>Only the c00lgui is available for now. Do note this script is in developement and was derived from c00lgui Reborn v2.1 by KingMarai (credits to them!)</p>
+	<div class="code-container">
+        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+        <pre><code id="myCodeSnippet">
+loadstring(game:HttpGet("https://thoriumactinide.github.io/c00lgui-by-team-cCXR.lua"))()
+        </code></pre>
+    </div>
+</div>
+</body>
+</html>
+<script>
+        function copyCode(button) {
+            const codeElement = button.nextElementSibling.querySelector('code');
+            const codeToCopy = codeElement.innerText;
+
+            navigator.clipboard.writeText(codeToCopy)
+                .then(() => {
+                    button.textContent = 'Copied!';
+                    button.classList.add('copied');
+                    setTimeout(() => {
+                        button.textContent = 'Copy';
+                        button.classList.remove('copied');
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    alert('Failed to copy code. Please try again or copy manually.');
+                });
+        }
+    </script>
